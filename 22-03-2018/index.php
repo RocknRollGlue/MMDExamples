@@ -15,6 +15,7 @@ if(file_exists("log.txt")) {
     $file = fopen("log.txt", "w+") or die("File could not be found or created");
     fwrite($file, "hi", 2); //Vi skal skrive til filen
     echo fread($file, 2);
+    fclose($file);
 }
 
 ?>

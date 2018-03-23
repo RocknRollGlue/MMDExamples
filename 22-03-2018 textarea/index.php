@@ -7,8 +7,7 @@
     <form method="post">
         <textarea name="texteditor" >
             <?php
-            echo readFromFile("sitetext","txt");
-
+            echo file_get_contents("sitetext.txt");
             ?>
         </textarea>
         <br/>
@@ -38,8 +37,6 @@
             if(!file_exists("$filename.$filetype")) {
                 createFile($filename,$filetype);
             }
-            readFromFile($filename,$filetype);
-
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 writeToFile($filename, $filetype, $_POST["texteditor"]);
             }
